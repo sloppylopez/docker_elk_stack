@@ -1,12 +1,4 @@
-#http://phusion.github.io/baseimage-docker/#solution
-#https://github.com/phusion/baseimage-docker
-
-# Use phusion/baseimage as base image. To make your builds
-# reproducible, make sure you lock down to a specific version, not
-# to `latest`! See
-# https://github.com/phusion/baseimage-docker/blob/master/Changelog.md
-# for a list of version numbers.
-# using latest version 0.9.16
+FROM rancher/os:v0.4.0-rc6
 
 FROM phusion/baseimage:0.9.16
 #FROM ubuntu:14.04

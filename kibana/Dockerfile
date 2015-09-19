@@ -6,9 +6,9 @@
 # to `latest`! See
 # https://github.com/phusion/baseimage-docker/blob/master/Changelog.md
 # for a list of version numbers.
-# using latest version 0.9.16
-FROM phusion/baseimage:0.9.16
-#FROM ubuntu:14.04
+# using latest version 0.9.17
+FROM phusion/baseimage:0.9.17
+#USING FUSION SINCE rancherOS seems to fail for kibana build
 MAINTAINER Sloppy Lopez <sloppy@sloppylopez.com>
 
 ENV KIBANA_VERSION=4.0.2
