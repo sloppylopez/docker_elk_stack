@@ -1,0 +1,73 @@
+#indentation is relevant!
+#VERSION: 1.0.1-forever-alone
+nodeapi:
+
+ build: ./nodeapi
+ restart: always
+ ports:
+ - "3000:3000"
+
+kibana:
+
+ build: ./kibana
+ restart: always
+ ports:
+ - "5601:5601"
+ links:
+ - elasticsearch
+
+elasticsearch:
+
+ build: ./elasticsearch
+ restart: always
+ ports:
+ - "9200:9200"
+ - "9300:9300"
+ volumes:
+ - "/data:/data"
+
+logstash:
+
+ build: ./logstash
+ restart: always
+ ports:
+ - "4545:4545"
+ - "4546:4546"
+
+rancher:
+
+ build: ./rancher
+ restart: always
+ ports:
+ - "8080:8080"
+ - "50000:50000"
+
+#teamcity:
+#
+# build: ./teamcity
+# restart: always
+# volumes:
+# - "/opt/TeamCity:/opt/TeamCity"
+# ports:
+# - "8111:8111"
+
+
+#jenkins:
+#
+# build: ./jenkins
+# restart: always
+# ports:
+# - "8033:8033"
+
+
+# nexus:
+#   build: ./nexus
+#   ports:
+#     - "8081:8081"
+#
+#jenkins:
+#   build: ./jenkins-ci
+##   links:
+##      - nexus:nexus
+#   ports:
+#     - "8080:8080"
