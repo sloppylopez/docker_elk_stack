@@ -44,7 +44,6 @@ Prerequisites :
     2) http://localhost:8084/api   nodeapi
     3) http://localhost:9200       elasticsearch
     4) http://localhost:8080       rancher
-    5) http://localhost:8111       teamcity (ci for nodejs)
 
 ##Upgrade docker
     wget -N https://get.docker.com/ | sh
@@ -54,11 +53,8 @@ Prerequisites :
     sudo docker run -d container_id -> run in detached mode
     sudo docker build .  -> build docker image
     sudo docker build -t sloppylopez/projectname .  -> build docker image
-    sudo docker run -dt -p 8111:8111 dockers_teamcity -> run docker teamcity image in detached mode
-    sudo docker run -ti -p 8111:8111 dockers_teamcity /bin/bash -> run docker teamcity image in interactive mode
 
-##Finally we are using rancher as base operating system for our Docker containers
-   
+##Finally we are using rancher as base operating system for our Docker container
     
 ##Info sources:
     http://stackshare.io/docker-tools
