@@ -1,9 +1,7 @@
 Base Article http://thepracticalsysadmin.com/running-elk-on-docker/
 
 ## docker has stopped distributing images with java pre-installed 
- 
- <img src="https://github.com/sloppylopez/angularclient/blob/master/app/images/100x100/foreveralone.jpg" alt="sloppylopez.com"/>
- ![alt tag](http://www.memesly.com/media/created/ghp9w3.jpg) v1.0.9-forever-alone
+  v2.0
  
  <a href="http://sloppylopez.com/">sloppylopez.com</a>
  
