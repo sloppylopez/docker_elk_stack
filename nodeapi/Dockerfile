@@ -1,4 +1,4 @@
-FROM rancher/os:latest
+FROM phusion/baseimage:0.9.16
 
 MAINTAINER Sloppy Lopez <sloppy@sloppylopez.com>
 
