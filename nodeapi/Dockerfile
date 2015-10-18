@@ -1,4 +1,4 @@
-FROM rancher/os:v0.4.0-rc6
+FROM rancher/os:latest
 
 MAINTAINER Sloppy Lopez <sloppy@sloppylopez.com>
 
