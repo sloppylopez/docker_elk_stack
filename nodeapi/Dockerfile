@@ -19,12 +19,9 @@ WORKDIR $ROOTFOLDER
 # Dependencies
 RUN apt-get update -qq && \
     apt-get install -y -qq \
-    curl \
     git \
-    python
 
 # Install
-RUN curl -sL https://deb.nodesource.com/setup_$NODE_VERSION | bash -
 RUN apt-get install -y nodejs
 RUN git clone https://github.com/$GIT_USER/$GIT_BASE_FOLDER.git
 RUN cd ./$GIT_BASE_FOLDER;npm install
