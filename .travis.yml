@@ -1,24 +1,28 @@
 udo: required
 services:
-  - docker
+- docker
 branches:
   except:
   - /-job-\d+/
   only:
   - master
 before_install:
- - set -e
- - curl -L "https://github.com/docker/compose/releases/download/1.4.2/docker-compose-`uname -s`-`uname -m`" > docker-compose
- - chmod +x docker-compose
- - sudo mv docker-compose /usr/local/bin
-install:
+- set -e
+- curl -L "https://github.com/docker/compose/releases/download/1.4.2/docker-compose-`uname
+  -s`-`uname -m`" > docker-compose
+- chmod +x docker-compose
+- sudo mv docker-compose /usr/local/bin
+install: 
 script:
-  - docker-compose build
-#  - docker-compose up
+- docker-compose build
 after_script:
-  - docker-compose version
-  - echo "TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
-  - echo "TRAVIS_BRANCH ${TRAVIS_BRANCH}"
-after_success:
+- docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+- docker-compose version
+- echo "TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
+- echo "TRAVIS_BRANCH ${TRAVIS_BRANCH}"
+after_success: 
 env:
   global:
+  - secure: sVIdNG7wejYznrbLJ8UYRKX+11gxzvd9dcH/57FH2grCMt7Fww5Y8NZUeDCxKwAUyJAm8p+nqclCZhXQD8argox3LqGsSbS+J/7glhVT7QtaHJ9OkOnr/VlZ5KOhS0/zCr34/OaUzcak2fbfjoHAIQRMGSsbF8VX1jQ+WdMnxp8nTNieuzX+MvDe2qezBFsI+XCx7f0npmkXTFhxn42P8nLezKbpubdt5BuplDlc5bQXG/vksXU1g889ZpvRKWuGf5ShXjBfAY/ABf+8G62oUmBxrYzxHVvP4nC0y7W9vCM06jIrf8/jxNGdvDjvvhQcbD+RP0aYZjsFrl5ZZD4VpbkroW0JQlQ6WYwH8kHUPLe8PFKcZAkuwxI/6PZL3kPa42TPV0Nom+OH8a4gXm6f1s01ODUOFsBT+16Lsm5IMOmrI4aAN4F9jY7pchmR+KR6yCOFPrB03dR9Snuc0/8sd/7NDP2I9igu7s71v4s2Fa+2pyKtm8epvfyNDsDlDvsf6q6OCikM0MfLqkU3Qs2oBu5Z0SyJxEajlYMa3nAGbq36QzoxYqVW4IByPt3edFMRVphLFwPJVT36yTKeouXdMPeOuNeLGUrq/y49P3DwsnbODsG3aj3oHXPp5PPTOmYH74zHMtKO5z6FunQp4+utPvHsO7dfFUUjKbIolYnXB40=
+  - secure: U30G6IlT2hq5Q2b3nZ6grh4pkW81rV2ogS1iLPpoSxzXGt897S/R9tRsL9gCQ5srDbVPNR7Wu2wLq5W77NgpCjRDzXQQEcrdsKoNu61I3C05QOm/dFK/RN/6b+qhVBefluFuKw1wZw1I7XULctCU5q3V+8jVO1VWrxd1IEh0M7yqisw/k2thxAUu2l/WeEs4088EA3mDZ1PZka8+LQKVZ6FW/2rGUA88prfitb4a3YwVdnvGFc4MYbj/vhmZjymIj6UMivaOZ9O/eTDzYqy4zDnD0RYPhmWUHAcTtys9tCttqesPo3jgVFQ2TTZ0jx22BCcltxE9GFF9VUl0+y1AVqbBfI3e70YbuAdCg8Vu5BRzFxJCZdFF4sQsPskNiXwg3fiSl1pqpk/JK9pja6tCACCqyeJTsZQFYF/fLEXGmQkY9A5Y5ZDd6RgPKqc2N2WfQ8v+RcgB2SOITIbk+qb2R3V8ITk9MNDsKpG90PlYJt3zM9XyRX+EVqigkGO5MJOR2afExJzFjDvZzTLcRyWkTy7ZRAChXgCGrPYSj6d7uH45BF+VxsmcRIcwDC1mVT2hVnNK+06B2PrpmwzoAcnC+RiKQabX7qz8oPN61IfXL+eeumfdDbZT6hAInF7Fn2ZFsIPYuAR6TNJUA6oyrDnKX7o64/6ARqahqfsoFakuawA=
+  - secure: B/R29yo5dY6xToWveukqq6UKL7Zqbur0s1ypU3JS2qFISwsFm8BGxp1D6p9WjPYTzryNyqPftoQXgNJvL9rrpkBmxFtCBg4Z1jjecXqRyPKMbV/Hlg3bZsBcsPRZS5MYZT81QDBODB4sXTJTY+R9wutiLMAlMoREeh9+eAI+lBiCaG9SZecbtRob4ot1+g201dPF1/hLEMv0lBKJf7ZT5qk1o5awlOB/4eiNwR6bbsTYSJqr5UR0nKqWhWsj9rhNdiwch2pFayh6HGDdecU0SpScAx0yM7fcBxon9OHEx8C9v/dt24W95PGWIXjWdI3tZd0LOXRTrRZStTqjNPbB5K/Z8dcDuVUWPbyiHu/OmJ1H2SgT9xb3QcFiQGZZENWPVltq5zj0/Z32W2Z9hob5+f7kuEs+ajXUnZm+LkkEYbxQScGTF0A2dvRaOl1Cw88PlWdnA/rtakVs4mL54yUeUSbkF4/l+eplCdEy+29tIi5fJ1UbKt80rxZAY3ONxaeiXsXls7RcXBi33tq2Olemyg7o/nrboHJox63tIOS6nGnLF03aEJRKRHPEi2Rd/1tSel4s6JHabVDurz6wObeNvPAq1IEP1XMRlcvHotKItxJwTXuvn212PmKt54Za5RopczL/tZ8ONDnQk3ybfO4+Lc2ZteLVIDL0BEuTkA0U2b4=
