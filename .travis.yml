@@ -1,8 +1,6 @@
 udo: required
 services:
   - docker
-env:
-  COMPOSE_VERSION: 1.4.0
 branches:
   except:
   - /-job-\d+/
@@ -10,7 +8,7 @@ branches:
   - master
 before_install:
  - set -e
- - curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m`" > docker-compose
+ - curl -L "https://github.com/docker/compose/releases/download/1.4.2/docker-compose-`uname -s`-`uname -m`" > docker-compose
  - chmod +x docker-compose
  - sudo mv docker-compose /usr/local/bin
 install:
