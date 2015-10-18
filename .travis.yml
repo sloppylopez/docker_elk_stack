@@ -2,7 +2,7 @@ udo: required
 services:
   - docker
 env:
-  COMPOSE_VERSION: 1.4.2
+  COMPOSE_VERSION: 1.4.0
 branches:
   except:
   - /-job-\d+/
