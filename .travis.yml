@@ -10,12 +10,13 @@ branches:
   - master
 before_install:
  - set -e
- - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+ - curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m`" > docker-compose
  - chmod +x docker-compose
  - sudo mv docker-compose /usr/local/bin
 install:
 script:
   - docker-compose build
+#  - docker-compose up
 after_script:
   - docker-compose version
   - echo "TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
