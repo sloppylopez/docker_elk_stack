@@ -1,6 +1,5 @@
-FROM rancher/os:v0.4.0-rc6
+FROM phusion/baseimage:0.9.17
 
-FROM phusion/baseimage:0.9.16
 #FROM ubuntu:14.04
 ENV LOGSTASH_VER 1.5.0.rc2
 ENV DEBIAN_FRONTEND noninteractive
