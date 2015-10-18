@@ -1,25 +1,24 @@
-language: node_js
-node_js:
-- 0.12.0
-sudo: required
+udo: required
 services:
   - docker
+env:
+  COMPOSE_VERSION: 1.4.1
 branches:
   except:
   - /-job-\d+/
   only:
   - master
 before_install:
-- set -e
-- curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > docker-compose
-- chmod +x docker-compose
-- sudo mv docker-compose /usr/local/bin
+ - set -e
+ - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+ - chmod +x docker-compose
+ - sudo mv docker-compose /usr/local/bin
 install:
 script:
-- sh ./run_dockers.sh
+  - sh ./run_dockers.sh
 after_script:
-- echo "TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
-- echo "TRAVIS_BRANCH ${TRAVIS_BRANCH}"
+  - echo "TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
+  - echo "TRAVIS_BRANCH ${TRAVIS_BRANCH}"
 after_success:
 env:
   global:
