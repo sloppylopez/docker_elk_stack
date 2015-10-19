@@ -17,7 +17,7 @@ install:
 script:
 - docker-compose build
 after_script:
-- docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+- docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASSWORD} sloppylopez/docker_elk_stack
 - docker images
 - docker push sloppylopez/docker_elk_stack
 - echo "TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
