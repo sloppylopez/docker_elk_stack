@@ -8,13 +8,12 @@ branches:
   - master
 before_install:
 - set -e
-- curl -L "https://github.com/docker/compose/releases/download/1.4.2/docker-compose-`uname
-  -s`-`uname -m`" > docker-compose
+- curl -L "https://github.com/docker/compose/releases/download/1.4.2/docker-compose-`uname -s`-`uname -m`" > docker-compose
 - chmod +x docker-compose
 - sudo mv docker-compose /usr/local/bin
 install: 
 script:
-- docker-compose build
+- docker-compose version
 after_script:
 #- echo ${DOCKER_EMAIL}
 #- echo ${DOCKER_USERNAME}
