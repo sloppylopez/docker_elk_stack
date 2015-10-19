@@ -18,12 +18,12 @@ script:
 - docker-compose version
 after_script:
 - echo ${DOCKER_EMAIL}
-- echo ${DOCKER_USERNAME}
+- echo ${DOCKER_USER}
 - echo ${DOCKER_PASSWORD}
-- docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+- docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
 - echo "TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
 - echo "TRAVIS_BRANCH ${TRAVIS_BRANCH}"
-after_success: 
+after_success:
 env:
   global:
   - secure: wEb65XTiYncCI7JB8RJqdI1OufgDvVuY+FMa2KN1yeFy+XQ46Nux0Dh08wGzvWMyKRwM1ouwFdnzpYGIJlmUFRiANWKLiF0lPZLnLtaKBoDVLNy2XC/frvA4e8kYSYzM3TNzkujsbcxSgrFx0sLmB4l8IRgJi6Zk7CxjUXvfVDrUd50CIvwmkehEbOSUb4MymB1PamOEzT+u7U4FzpCdrLHUl5dY0Yw1K8i15nvklXvyQkH6SUIiU2K8C0K1IWwxeejafjxjDp7r6/U70smi4gowiNuYIcNftRjezUwyTBZtL1Tug5jrGUgjTBwtlDVBDuZv+1mz6BuspldKUlfYb29gIhfS5TJShTIoy5PwzeAen2Bky2tXOMtzcAq6ZxmGOqOkUzq4rObEsO3k9/pdh8dtHkqt04BqCWQNFgsjMz07okVU521GkTgDlWKhKfmxVRKz7UBMZm/B14jU4ooxublclOVEEYNpue9wd4hYRk1+XSgZtn4a9oY5NxtqC+6BoNA6fKvudhhQnmVA6EjTdDc8zncUjGz2acozE7lpzfwMtd8mkAZaVzy92R5OneGY7L5axdsbgeWGAYBZ4ks1yZJhZZ8B4x8cBq/hpeOifpaooUa2np5HXZfuCO3NKlsJedlp78rCp47Y+4FF5mq241lWiCyGvdoAz4IYDqER3pM=
