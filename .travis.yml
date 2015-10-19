@@ -15,7 +15,7 @@ install:
 - docker version
 - docker-compose version
 script:
-- docker-compose up
+- docker-compose build
 after_script:
 - docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
 - docker images
