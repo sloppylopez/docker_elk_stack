@@ -13,7 +13,7 @@ sudo gem install travis
 #Encrypt your code climate key for Travis build and add it automatically to your .travis.yml
 #remember explicitly declare this variables in
 #https://travis-ci.org/<YOUR_GIT_USER>/<YOUR_GIT_PROJECT_NAME>/settings/env_vars
-travis encrypt DOCKER_USER=<YOUR_DOCKER_USER> --add && travis encrypt DOCKER_PASSWORD=<YOUR_DOCKER_PASSWORD> --add && travis encrypt DOCKER_EMAIL=<YOUR_DOCKER_EMAIL> --add
+travis encrypt DOCKER_EMAIL=<YOUR_DOCKER_EMAIL> && travis encrypt DOCKER_USER=<YOUR_DOCKER_USER> --add && --add && travis encrypt DOCKER_PASSWORD=<YOUR_DOCKER_PASSWORD> --add
 
 #Docker-Compose
 sudo curl -L https://github.com/docker/compose/releases/download/1.3.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
