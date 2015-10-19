@@ -11,15 +11,16 @@ before_install:
 - curl -L "https://github.com/docker/compose/releases/download/1.4.2/docker-compose-`uname -s`-`uname -m`" > docker-compose
 - chmod +x docker-compose
 - sudo mv docker-compose /usr/local/bin
-install: 
+install:
+- docker version
+- docker-compose version
 script:
 - docker-compose version
 after_script:
-#- echo ${DOCKER_EMAIL}
-#- echo ${DOCKER_USERNAME}
-#- echo ${DOCKER_PASSWORD}
+- echo ${DOCKER_EMAIL}
+- echo ${DOCKER_USERNAME}
+- echo ${DOCKER_PASSWORD}
 - docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-- docker-compose version
 - echo "TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
 - echo "TRAVIS_BRANCH ${TRAVIS_BRANCH}"
 after_success: 
