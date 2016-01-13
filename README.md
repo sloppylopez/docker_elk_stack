@@ -68,3 +68,7 @@ Prerequisites :
     https://registry.hub.docker.com/u/sloppylopez/dockers/settings/webhooks/
     https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-elk-stack-one-click-application
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sloppylopez/docker_elk_stack/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
